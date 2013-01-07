@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<clay-model clay-version="2.0.1">
+<database-model author="" begin-script="" end-script="" id="47a89031:13a72a837ce:-7fea" name="dbModel" sql-dialect-id="jp.azzurri.clay.dialect.MySQL_5_0_Dialect" version="1.0">
+<schema-list>
+<schema id="47a89031:13a72a837ce:-7fe7" name="DEFAULT_SCHEMA">
+<table-list>
+<table id="47a89031:13a72a837ce:-7fe9" name="APP_USER">
+<table-description>用户表</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="47a89031:13a72a837ce:-7fe4" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="47a89031:13a72a837ce:-7fe3" mandatory="true" name="EMAIL" remarks="邮箱">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="47a89031:13a72a837ce:-7fe2" mandatory="true" name="PASSWORD" remarks="密码">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="47a89031:13a72a837ce:-7fe1" mandatory="false" name="USER_NAME" remarks="姓名">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ffd" mandatory="false" name="CREATED_BY" remarks="创建人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ffc" mandatory="false" name="CREATED_DATE" remarks="创建时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ffb" mandatory="false" name="LAST_MODIFIED_BY" remarks="修改人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ffa" mandatory="false" name="LAST_MODIFIED_DATE" remarks="修改时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+</column-list>
+<primary-key id="47a89031:13a72a837ce:-7fe8" name="PK_APP_USER">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7ff9" name="ROLE">
+<table-description>角色</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ff5" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ff4" mandatory="true" name="ROLE_NAME">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7ff3" mandatory="false" name="DESCRIPTION" remarks="描述">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7ff8" name="PK_ROLE">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7ff0" name="USER_ROLE_DETAIL">
+<table-description>用户角色关联表</table-description>
+<column-list>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fec" mandatory="true" name="USER_ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7feb" mandatory="true" name="ROLE_ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7fef" name="PK_USER_ROLE_DETAIL">
+<primary-key-column name="USER_ID"/>
+<primary-key-column name="ROLE_ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="193d99f8:13a774364e6:-7d18" name="FK_USER_ROLE_DETAIL_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_APP_USER" referenced-table="APP_USER" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="USER_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+<foreign-key id="193d99f8:13a774364e6:-7ce0" name="FK_USER_ROLE_DETAIL_2" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_ROLE" referenced-table="ROLE" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="ROLE_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7fe2" name="ENTRY">
+<table-description>blog</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fde" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fdd" mandatory="false" name="CATEGORY_ID" remarks="类别ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fdc" mandatory="true" name="SUBJECT" remarks="标题">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="2000" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fdb" mandatory="true" name="BODY">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fda" mandatory="true" name="POST_DATE" remarks="发布日期">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fd9" mandatory="false" name="CREATED_BY" remarks="创建人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fd8" mandatory="false" name="CAEATED_DATE" remarks="创建时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fd7" mandatory="false" name="LAST_MODIFIED_BY" remarks="修改人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fd6" mandatory="false" name="LAST_MODIFIED_DATE" remarks="修改时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="0" id="d4540b:13bbc21fcb4:-7fea" mandatory="false" name="isPublic">
+<data-type name="BIT" selected-variant-pattern="BIT"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7fe1" name="PK_ENTRY">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="193d99f8:13a774364e6:-7d7f" name="FK_ENTRY_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_CATEGORY" referenced-table="Category" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="CATEGORY_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7fd3" name="COMMENT">
+<table-description>评论</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fcf" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fce" mandatory="true" name="ENTRY_ID" remarks="条目ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="2000" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fcd" mandatory="true" name="BODY" remarks="评论内容">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fcc" mandatory="true" name="POST_BY" remarks="评论人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fcb" mandatory="true" name="POST_DATE" remarks="评论日起">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fca" mandatory="false" name="CREATED_BY" remarks="创建人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc9" mandatory="false" name="CREATED_DATE" remarks="创建时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc8" mandatory="false" name="LAST_MODIFIED_BY" remarks="修改人">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc7" mandatory="false" name="LAST_MODIFIED_DATE" remarks="修改时间">
+<data-type name="DATETIME" selected-variant-pattern="DATETIME"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7fd2" name="PK_COMMENT">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="193d99f8:13a774364e6:-7ddb" name="FK_COMMENT_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_ENTRY" referenced-table="ENTRY" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="ENTRY_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7fc6" name="ENTRY_ATTACHMENT">
+<table-description>博客附件</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc2" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc1" mandatory="true" name="ENTRY_ID" remarks="博客id">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fc0" mandatory="true" name="FILE_NAME" remarks="文件名称">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fbf" mandatory="true" name="FILE_PATH" remarks="文件路径">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fbe" mandatory="true" name="CONTENT_TYPE" remarks="文件类型">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7fc5" name="PK_ENTRY_ATTACHMENT">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="193d99f8:13a774364e6:-7caf" name="FK_ENTRY_ATTACHMENT_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_ENTRY" referenced-table="ENTRY" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="ENTRY_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="7c594d5e:13a73cd74f1:-7fbd" name="COMMENT_ATTACHMENT">
+<table-description>评论附件</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fbb" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="0" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fba" mandatory="true" name="COMMENT_ID" remarks="评论id">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fb9" mandatory="true" name="FILE_NAME" remarks="文件名称">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="255" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fb8" mandatory="true" name="FILE_PATH" remarks="文件路径">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+<column auto-increment="false" column-size="10" decimal-digits="0" default-value="" id="7c594d5e:13a73cd74f1:-7fb7" mandatory="true" name="CONTENT_TYPE" remarks="文件类型">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="7c594d5e:13a73cd74f1:-7fb6" name="PK_COMMENT_ATTACHMENT">
+<primary-key-column name="ID"/>
+</primary-key>
+<foreign-key-list>
+<foreign-key id="193d99f8:13a774364e6:-7c27" name="FK_COMMENT_ATTACHMENT_1" on-delete="UNSPECIFIED" on-update="UNSPECIFIED" referenced-key="PK_COMMENT" referenced-table="COMMENT" referenced-table-schema="DEFAULT_SCHEMA" source-entity-role="" source-multiplicity="0..*" source-relationship-type="" target-entity-role="" target-multiplicity="1" target-relationship-type="">
+<foreign-key-column column-name="COMMENT_ID" referenced-key-column-name="ID"/>
+</foreign-key>
+</foreign-key-list>
+</table>
+<table id="193d99f8:13a774364e6:-7ece" name="Category">
+<table-description>类别</table-description>
+<column-list>
+<column auto-increment="true" column-size="0" decimal-digits="0" default-value="" id="193d99f8:13a774364e6:-7eca" mandatory="true" name="ID">
+<data-type name="INT" selected-variant-pattern="INT"/>
+</column>
+<column auto-increment="false" column-size="50" decimal-digits="0" default-value="" id="193d99f8:13a774364e6:-7ec7" mandatory="true" name="CATEGORY_NAME" remarks="类别名称">
+<data-type name="VARCHAR" selected-variant-pattern="VARCHAR(%n)"/>
+</column>
+</column-list>
+<primary-key id="193d99f8:13a774364e6:-7ecd" name="PK_CATEGORY">
+<primary-key-column name="ID"/>
+</primary-key>
+</table>
+</table-list>
+</schema>
+</schema-list>
+</database-model>
+<diagram>
+<table-figure refid="47a89031:13a72a837ce:-7fe9" x="102" y="45"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7ff9" x="733" y="57"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7ff0" x="489" y="64"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7fe2" x="337" y="233"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7fd3" x="702" y="207"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7fc6" x="140" y="430"/>
+<table-figure refid="7c594d5e:13a73cd74f1:-7fbd" x="712" y="434"/>
+<table-figure refid="193d99f8:13a774364e6:-7ece" x="10" y="218"/>
+</diagram>
+</clay-model>
